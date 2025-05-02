@@ -1,7 +1,7 @@
 /* compiler class implementation */
 
 #include "compiler.h"
-
+#include <iostream>
 #include <algorithm>
 #include <fstream>
 #include <iostream>
@@ -288,6 +288,7 @@ void Compiler::ProcessImports()
 
 			// If the imported module doesn't exist already, load it
 			if(!imp) {
+				std::cout << "Trying to load module: " << filename << std::endl;
 				imp = FindAndLoadModule( filename, module_dir.string() );
 
 				// We'll need to process the newly loaded module's imports as well
